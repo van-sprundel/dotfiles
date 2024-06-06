@@ -1,8 +1,5 @@
-import = ["/home/ramones/.config/alacritty/tokyo-night.toml"]
+import = [
+    "~/.config/alacritty/themes/duskfox.toml"
+]
+
 shell = "fish"
-
-[font]
-size = 12
-
-[font.normal]
-family = "Iosevka Nerd Font"

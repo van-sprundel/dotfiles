@@ -42,15 +42,16 @@ local plugins = {
         event = "InsertEnter",
         opts = {}
     },
+    { "windwp/nvim-ts-autotag" },
+
     -- git
     { 'lewis6991/gitsigns.nvim' },
+    { 'tpope/vim-fugitive' },
+
     -- theme
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
+    { "EdenEast/nightfox.nvim" },
+    {"nvim-tree/nvim-tree.lua"}, -- filetree on the side
+    { "nvim-tree/nvim-web-devicons" }
 }
 
 return require("lazy").setup(plugins)
