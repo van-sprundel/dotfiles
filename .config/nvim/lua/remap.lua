@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- file list
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -24,12 +25,35 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
 
+-- undo/redo remap
+vim.keymap.set('n', 'u', 'u', { noremap = true, silent = true })
+vim.keymap.set('n', 'U', '<C-r>', { noremap = true, silent = true })
+
 -- treesitter
 local builtin = require('telescope.builtin')
 
 -- nvim-tree
-vim.keymap.set('n', '<a-1>', '<cmd>NvimTreeToggle<cr>')
+vim.keymap.set('n', '<A-1>', function()
+    local nvim_tree = require('nvim-tree.api')
+    local current_buf = vim.api.nvim_get_current_buf()
 
+    local is_tree = vim.bo[current_buf].filetype == 'NvimTree'
+
+    if is_tree then
+        -- in tree, hide and focus last window
+        nvim_tree.tree.toggle()
+    else
+        -- not in tree, focus it
+        nvim_tree.tree.focus()
+    end
+end, { silent = true, noremap = true })
+
+vim.keymap.set('n', '<A-2>', function()
+    local nvim_tree = require('nvim-tree.api')
+    nvim_tree.tree.focus()
+end, { silent = true, noremap = true })
+
+-- find files
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>g', builtin.git_files, {})

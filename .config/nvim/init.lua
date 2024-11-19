@@ -1,4 +1,4 @@
-require("packer")
+require("lazy")
 require("set")
 require("remap")
 
