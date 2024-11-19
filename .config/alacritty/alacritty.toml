@@ -1,5 +1,20 @@
+[general]
 import = [
-    "~/.config/alacritty/themes/duskfox.toml"
+    "~/.config/alacritty/themes/nightfox.toml"
 ]
 
+[font.normal]
+family = "GeistMono Nerd Font"
+style = "normal"
+
+[font.bold]
+family = "GeistMono Nerd Font"
+style = "bold"
+
+[font.italic]
+family = "GeistMono Nerd Font"
+style = "italic"
+
+[env]
 shell = "fish"
+
