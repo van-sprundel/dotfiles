@@ -33,6 +33,9 @@ lsp_zero.on_attach(function(_, bufnr)
     vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
 
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        
+    -- open error to read better
+    vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 end)
 
 require('mason').setup({})
